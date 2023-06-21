@@ -1,0 +1,15 @@
+.swiper {
+    width: 100%;
+    height: calc(100vh - 300px);
+  }
+.swiper-slide {
+    width: 100%;
+    height: calc(100vh - 300px);
+    position: relative;
+}
+
+.swiper-slide > img {
+    height:100%;
+    width: 100%;
+    object-fit: cover;
+}
