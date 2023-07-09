@@ -6,7 +6,7 @@ import { Search } from '@mui/icons-material';
 
 const Navbar = () => {
     return (
-        <Box sx={{display: "flex", boxShadow: 2}}>
+        <Box sx={{display: "flex", boxShadow: 2, position: "sticky"}}>
             <Stack
             direction="row"
             spacing={10}
@@ -16,9 +16,10 @@ const Navbar = () => {
             >
                 {navitems.map((item) => (
                     <Link
+                    key={item.id}
                     style={{textDecoration: "none", color: "darkgreen"}}
                     to={item.path}>
-                        <Typography key={item.id}>
+                        <Typography>
                             {item.page}
                         </Typography>
                     </Link>

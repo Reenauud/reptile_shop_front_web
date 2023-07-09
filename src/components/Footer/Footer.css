@@ -1,0 +1,6 @@
+footer {
+    height: auto;
+    background-color: var(--bg-dark);
+    color: var(--police-lighter);
+    padding: 100px 50px 50px 50px;
+}

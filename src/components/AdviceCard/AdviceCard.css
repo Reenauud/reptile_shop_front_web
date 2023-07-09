@@ -1,0 +1,6 @@
+.animal-display {
+    height: 380px;
+    width: 380px;
+    object-fit: cover;
+    border-radius: 50%;
+}

@@ -6,6 +6,7 @@ import Home from './pages/Home/Home';
 import Reptiles from './pages/Reptiles/Reptiles';
 import Header from './components/Header/Header';
 import Advice from './pages/Advice/Advice';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/equipments' element={<Equipments />}/>
         <Route path='/advice' element={<Advice />}/>
       </Routes>
+      <Footer />
       
     </div>
   );
