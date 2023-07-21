@@ -1,8 +1,9 @@
 import React from 'react';
 import { AnimalInfos } from '../../shared/typeDefs';
-import { Box, Card, CardContent, CardActions, Button, Typography } from '@mui/material';
+import { Box, Card, CardContent, Typography, Stack, Icon, Avatar } from '@mui/material';
 import "./AdviceCard.css";
 import DifficultyGauge from '../DifficultyGauge/DifficultyGauge';
+import { Brightness7, Opacity, LightMode, Nightlight } from '@mui/icons-material';
 
 type AdviceCardComponentProps = {
     animalInfos: AnimalInfos;
@@ -11,7 +12,7 @@ type AdviceCardComponentProps = {
 const AdviceCard = ({ animalInfos }: AdviceCardComponentProps) => {
     console.log(animalInfos);
     return (
-        <Card sx={{ minWidth: 1000, minHeight: 600, margin: "auto" }}>
+        <Card sx={{ width: 900, minHeight: 600, margin: "auto", mt: 4 }}>
             <Box sx={{position: "relative", height: 400, width: "100%"}}>
                 <Box sx={{width: 400,
                     height: 400,
@@ -23,7 +24,7 @@ const AdviceCard = ({ animalInfos }: AdviceCardComponentProps) => {
                     justifyContent: "center",
                     alignItems: "center"}}
                 >
-                    <img src="./assets/python-reticule.jpg" alt="Python réticulé" className='animal-display'/>
+                    <Avatar src={`./assets/${animalInfos.animalPicture}`} alt={animalInfos.name} className='animal-display'/>
                 </Box>
                 <Box sx={{height: 200, marginLeft: "calc(200px + 4%)", backgroundColor: "lightgreen"}}>
                     <Typography sx={{mr: 2}} variant="h3" align="right">{animalInfos.name}</Typography>
@@ -33,31 +34,57 @@ const AdviceCard = ({ animalInfos }: AdviceCardComponentProps) => {
                 <Box sx={{height: 200, display: "flex", justifyContent: "space-between"}}>
                     <Box sx={{height: 200, width: "calc(200px + 4%)", backgroundColor: "lightgreen"}}></Box>
                     <Box>
-                        <DifficultyGauge difficulty={animalInfos.upkeep.difficulty} />
+                        <Stack direction="row" sx={{display: "flex", alignItems: "center", ml: "180px"}}>
+                            <Typography sx={{ mr: 4 }}>Entretien </Typography>
+                            <DifficultyGauge difficulty={animalInfos.upkeep.difficulty} />
+                        </Stack>
+                        <Stack spacing={1} sx={{ml: "180px", display: "flex", justifyContent: "center"}}>
+                            <Typography>
+                                <Icon sx={{mr: 4}}>
+                                    <Brightness7 />
+                                </Icon>
+                                 {animalInfos.upkeep.dayCycle}
+                            </Typography>
+                            <Typography>
+                                <Icon sx={{mr: 4}}>
+                                    <Opacity />
+                                </Icon>
+                                 {animalInfos.upkeep.hygrometry}
+                            </Typography>
+                            <Stack direction="row" spacing={3} sx={{display: "flex", alignItems: "center"}}>
+                                <Typography>
+                                    <Icon sx={{mr: 4}}>
+                                        <LightMode />
+                                    </Icon>
+                                      {animalInfos.upkeep.dayTemperature}
+                                </Typography>
+                                <Typography>
+                                    <Icon sx={{mr: 4}}>
+                                        <Nightlight />
+                                    </Icon>
+                                      {animalInfos.upkeep.nightTemperature}
+                                </Typography>
+                            </Stack>
+                        </Stack>
                     </Box>
                 </Box>
             </Box>
                 
             
             <CardContent>
-                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                Word of the Day
+                <Typography variant="h5" color="text.secondary" gutterBottom>
+                    Régime alimentaire
                 </Typography>
-                <Typography variant="h5" component="div">
-                benevolent
+                <Typography sx={{ml: 2}}>
+                    {animalInfos.upkeep.eatingPlan}
                 </Typography>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                adjective
+                <Typography sx={{mt: 4}} variant="h5" color="text.secondary" gutterBottom>
+                    Conseils d'entretien
                 </Typography>
-                <Typography variant="body2">
-                well meaning and kindly.
-                <br />
-                {'"a benevolent smile"'}
+                <Typography sx={{ml: 2}}>
+                    {animalInfos.upkeep.upkeepInformations}
                 </Typography>
             </CardContent>
-            <CardActions>
-                <Button size="small">Learn More</Button>
-            </CardActions>
         </Card>
     )
 }

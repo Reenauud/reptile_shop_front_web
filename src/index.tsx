@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import { AuthProvider } from './shared/Contexts/AuthContext';
+import { Provider } from 'react-redux';
+import { store } from './shared/Redux/store';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
@@ -30,7 +33,11 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <ApolloProvider client={client}>
     <BrowserRouter>
-        <App />
+      <AuthProvider>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </AuthProvider>
     </BrowserRouter>
   </ApolloProvider>,
 );

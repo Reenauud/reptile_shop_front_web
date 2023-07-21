@@ -58,7 +58,7 @@ const Advice = () => {
 
     return (
         <Box sx={{p: 3, minHeight: "calc(100vh - 600px)", display: "grid", gridTemplateColumns: "20% 80%"}}>
-            <Typography variant="h4" sx={{gridColumn: "span 2"}}>Retrouvez nos conseils téléchargeables pour vos animaux favoris!</Typography>
+            <Typography variant="h4" sx={{gridColumn: "span 2", textAlign: "center"}}>Retrouvez nos conseils adaptés à vos animaux favoris!</Typography>
             <Box>
                 <AdviceFilters
                 categories={categories}

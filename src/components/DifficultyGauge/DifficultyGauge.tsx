@@ -51,9 +51,9 @@ const DifficultyGauge = ({ difficulty }: DifficultyGaugeComponentProps) => {
     }
 
     return (
-        <Box sx={{display: "grid", gridTemplateColumns: "33% 33% 33%", gridTemplateRows: "50% 50%", width: 420, height: 100, m: "auto"}}>
+        <Box sx={{display: "grid", gridTemplateColumns: "33% 33% 33%", gridTemplateRows: "50% 50%", width: 300, height: 100, m: "auto"}}>
             <Typography sx={{gridColumn: textPosition(difficulty), m: "auto"}}>{difficulty}</Typography>
-            <Box sx={{width: 400, height: 20, borderRadius: 20, gridRow: "2", span: "3", background: gaugeColor(difficulty) }}>
+            <Box sx={{width: 270, height: 20, borderRadius: 20, gridRow: "2", span: "3", background: gaugeColor(difficulty) }}>
 
             </Box>
         </Box>
