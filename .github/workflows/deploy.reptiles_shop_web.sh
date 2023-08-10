@@ -17,7 +17,7 @@ git pull -f --rebase origin main
 
 # récupérer les .env uploadés précédemment avec scp et les déplacer ici
 
-mv ../dotenv/reptiles_shop_web/.env.frontend .env
+mv /dotenv/reptiles_shop_web/.env.frontend .env
 
 # build docker images
 docker compose -f docker-compose.yml build --no-cache
