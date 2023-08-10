@@ -26,5 +26,6 @@ docker compose -f docker-compose.yml build --no-cache
 docker compose -f docker-compose.yml up >~/logs/reptile_shop_front_web/log.compose.$(date +"%s") 2>&1 &
 disown
 
+
 # delete old folder
 sudo rm -Rf ~/old_reptile_shop_front_web/
