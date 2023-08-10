@@ -55,6 +55,6 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=accept-new -i ~/.ssh/PROD_SSH.pem ubuntu@162.19.67.240 /bin/bash -s << EOT
           chmod +x ~/deploy.reptile_shop_web.sh
-          ~/deploy.reptile_shop_web.sh > ~/logs/reptile_shop_web/log.deploy.$( date +"%s") 2>&1 & disown
+          ~/deploy.reptiles_shop_web.sh > ~/logs/reptile_shop_web/log.deploy.$( date +"%s") 2>&1 & disown
           exit
           EOT
