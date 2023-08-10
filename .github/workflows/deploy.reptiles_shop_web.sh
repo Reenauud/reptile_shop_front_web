@@ -17,13 +17,13 @@ git pull -f --rebase origin main
 
 # récupérer les .env uploadés précédemment avec scp et les déplacer ici
 
-mv ./dotenv/reptile_shop_front_web/.env.frontend .env
+mv ../dotenv/reptile_shop_front_web/.env.frontend .env
 
 # build docker images
 docker compose -f docker-compose.yml build --no-cache
 
 # start containers
-docker compose -f docker-compose.yml up >~/logs/reptile_shop_front_web/log.compose.$(date +"%s") 2>&1 &
+docker compose -f docker-compose.yml up >~/logs/reptiles_shop_front/log.compose.$(date +"%s") 2>&1 &
 disown
 
 # delete old folder
