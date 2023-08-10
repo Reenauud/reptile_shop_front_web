@@ -23,7 +23,7 @@ mv ../dotenv/reptiles_shop_web/.env.frontend .env
 docker compose -f docker-compose.yml build --no-cache
 
 # start containers
-docker compose -f docker-compose.yml up >~/logs/reptile_shop_front_web/log.compose.$(date +"%s") 2>&1 &
+docker compose -f docker-compose.yml up >~/logs/reptile_shop_web/log.compose.$(date +"%s") 2>&1 &
 disown
 
 # delete old folder

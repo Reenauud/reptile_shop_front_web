@@ -36,7 +36,6 @@ jobs:
           cd reptile_shop_web/
           echo '${{secrets.DOT_ENV_WEB}}' > .env.frontend
           ls -al
-
       - name: checkout
         uses: actions/checkout@v3
 
