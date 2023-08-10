@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  front:
+    build:
+      dockerfile: "Dockerfile"
+      context: .
+    volumes:
+      - ./:/reptile_shop_web:rw,cached
+      - /reptile_shop_web/node_modules
+    ports:
+      - 3000:3000
+    command: npm run start
+    env_file:
+      - .env
+  
+    
