@@ -47,13 +47,13 @@ jobs:
       - name: scp bash script
         if: ${{ success() }}
         run: |
-          scp -r -p -o StrictHostKeyChecking=accept-new -i ~/.ssh/PROD_SSH.pem ubuntu@162.19.67.240 .github/workflows/deploy.reptiles_shop_web.sh ubuntu@162.19.67.240:~ || echo
+          scp -r -p -o StrictHostKeyChecking=accept-new -i ~/.ssh/PROD_SSH.pem ubuntu@162.19.67.240 .github/workflows/deploy.reptile_shop_web.sh ubuntu@162.19.67.240:~ || echo
 
       - name: connect SSH & run deploy script
         if: ${{ success() }}
         run: |
           ssh -o StrictHostKeyChecking=accept-new -i ~/.ssh/PROD_SSH.pem ubuntu@162.19.67.240 /bin/bash -s << EOT
-          chmod +x ~/deploy.reptiles_shop_web.sh
-          ~/deploy.reptiles_shop_web.sh > ~/logs/reptiles_shop_front_web/log.deploy.$( date +"%s") 2>&1 & disown
+          chmod +x ~/deploy.reptile_shop_web.sh
+          ~/deploy.reptile_shop_web.sh > ~/logs/reptile_shop_front_web/log.deploy.$( date +"%s") 2>&1 & disown
           exit
           EOT
