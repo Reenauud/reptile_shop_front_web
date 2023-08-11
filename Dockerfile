@@ -9,4 +9,10 @@ COPY tsconfig.json ./
 
 RUN npm install
 
+FROM base as production
+RUN npm run build
+RUN npm install -g serve
+CMD ["serve","-s","build"]
+
+FROM base as dev
 CMD ["npm", "start"]

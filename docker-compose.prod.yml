@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  front:
+    build:
+      dockerfile: "Dockerfile"
+      context: .
+      target: production
+    ports:
+      - 3000:3000
+    command: serve -s build
+    env_file:
+      - .env

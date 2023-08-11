@@ -5,6 +5,7 @@ services:
     build:
       dockerfile: "Dockerfile"
       context: .
+      target: dev
     volumes:
       - ./:/reptile_shop_web:rw,cached
       - /reptile_shop_web/node_modules
@@ -13,5 +14,3 @@ services:
     command: npm run start
     env_file:
       - .env
-  
-    
