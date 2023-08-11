@@ -1,5 +1,5 @@
 #DEV
-FROM node:18
+FROM node:18 as base
 
 WORKDIR /reptile_shop_web
 COPY package.json ./
